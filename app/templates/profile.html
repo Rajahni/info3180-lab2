@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ name }} • Flask Starter App</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Application CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    {% block css %} {% endblock%}
+  </head>
+  <body>
+    <header>
+        {% include "header.html" %}
+    </header>
+    <main>
+        <div class="container">
+            {% block main %}{% endblock %}
+        </div>
+        <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+            <div class="card p-4"> 
+                <div class=" image d-flex flex-column justify-content-center align-items-center">
+                     
+                    <img src="{{ url_for('static', filename='Bear.jpeg') }}" alt="Bear Image" />
+                    
+                    <span class="name mt-3">{{ name }}</span> 
+                    <span class="idd">@{{ details[0] }}</span> 
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                         <span class="idd1"><i>{{ details[1] }}</i></span> 
+                         <span><i class="fa fa-copy"></i></span> 
+                    </div> 
+                    <div class=" px-2 rounded mt-4 date "> 
+                        <span class="join">{{ date_app }}</span> 
+                    </div>
+                    <div class="text mt-3"> 
+                        <span>Rajahni Cunningham is a UWI student who enjoys Web Design. When he's not out hunting for food, he's fidddling with computers.
+                            <br><br><i>He doesn't bite. I promise.</i> </span> 
+                    </div> 
+                    <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+                        <span class="number">2 <span class="follow">Posts</span></span> 
+                        <span class="number">20 <span class="follow">Following</span></span>
+                        <span class="number">10 <span class="follow">Followers</span></span>
+                    </div> 
+                    <div class=" d-flex mt-2">
+                        <button class="btn1 btn-dark">Follow</button> 
+                    </div> 
+                    <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
+                        <span><i class="fa fa-twitter"></i></span> 
+                        <span><i class="fa fa-facebook-f"></i></span> 
+                        <span><i class="fa fa-instagram"></i></span> 
+                        <span><i class="fa fa-linkedin"></i></span> 
+                    </div>  
+                </div> 
+            </div>
+            </div>
+    </main>
+    <footer>
+        <div class="container">
+            {% include "footer.html" %}
+        </div>
+    </footer>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    {% block js %} {% endblock%}
+  </body>
+</html>
